@@ -11,17 +11,17 @@
 <body>
     <h1>{{ title }} Weather</h1>
     <p>{{ status }} and {{temp}} &deg;</p>
+    <p>Feels like {{feels_like}} &deg;</p>
 
-    <p>
-        if {{ feels_like }} < 40: Feels like {{ feels_like }} Brrrr! ❄⛄🤧🌨🥶🧊☃&deg; else: Feels like {{ feels_like }}
-            🌞🌻🌼🌷🌺🌸🌹🌞&deg; </p>
+    {% if feels_like_int < 40.0 %}<p>☃🧊🥶🌨It's cold out there! Bundle up!🌨🥶🧊☃</p>
+        {% elif feels_like_int < 70.0 %}<p>🍁🍂It's a little cool out there! Wear a light jacket!🍂🍁</p>
+            {% elif feels_like_int < 90.0 %}<p>🌴🥥It's a little warm out there! Wear a t-shirt!🥥🌴</p>
+                {% endif %}
 
-
-
-            <form action="/weather">
-                <input type="text" name="city" id="city" placeholder="Enter a city" />
-                <button type="submit">Submit</button>
-            </form>
+                <form action="/weather">
+                    <input type="text" name="city" id="city" placeholder="Enter a city" />
+                    <button type="submit">Submit</button>
+                </form>
 </body>
 
 </html>

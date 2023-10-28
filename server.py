@@ -31,6 +31,7 @@ def weather():
         status=weather_data["weather"][0]["description"].capitalize(),
         temp=f"{weather_data['main']['temp']:.1f}",
         feels_like=f"{weather_data['main']['feels_like']:.1f}",
+        feels_like_int=int(f"{weather_data['main']['feels_like']:.0f}"),
     )
 
 
